@@ -1,0 +1,12 @@
+<app-header ></app-header>
+<app-search (gotSearchResults)="updateResponse($event)"></app-search>
+<div class="container mt-4">
+  <h4 class="ml-2 mb-3" *ngIf="!loading">Location: {{location}}</h4>
+  <div class="d-flex justify-content-center mt-5" *ngIf="loading">
+  <div class="spinner-grow text-primary" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+  </div>
+  <div class="alert alert-danger m-3" *ngIf="error">Something went wrong</div>
+  <app-table [response]="data"></app-table>
+</div>

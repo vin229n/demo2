@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand">
+      <img src="assets/sun.png" width="50" height="50" alt="">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/" routerLinkActive="active">Home <span class="sr-only">(current)</span></a>
+      </li>
+
+    </ul>
+
+    <div class="btn-group" dropdown style="margin-right:90px">
+        <button id="button-basic" dropdownToggle type="button" >
+          <img src="assets/user.png"> 
+        </button>
+        <div id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+            role="menu" aria-labelledby="button-basic"  style="margin-right:190px">
+          <li role="menuitem" class="li">
+            <div class="h5">{{user.name}}</div>
+          </li>
+          <li role="menuitem" class="li">
+            <button  (click)="logout()" class="btnn" style="font-size: 15px">Logout</button>
+          </li>
+        </div>
+      </div>
+
+
+
+  </div>
+</nav>

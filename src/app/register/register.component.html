@@ -1,0 +1,33 @@
+<div class="d-flex justify-content-center mt-5" role="status">
+    <img src="assets/sun.png" width="50" height="50" alt="">
+</div>
+
+<div class="container bg-light">
+    <form [formGroup]="form" (ngSubmit)="register()">
+
+        <div class="form-group">
+          <label for="exampleInputEmail1">Name</label>
+          <input formControlName="name" type="text" class="form-control"  name="name" placeholder="Enter Name" autocomplete="off">
+          <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+            <div *ngIf="name.errors.required">UserName is required.</div>
+            <div *ngIf="name.errors.minlength">UserName should contain at least 5 characters</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email</label>
+          <input formControlName="email" type="email" class="form-control"  name="email" placeholder="Enter Email" autocomplete="off">
+          <div class="alert alert-danger" *ngIf="email.touched && email.invalid">Invalid  Email </div>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input formControlName="password" type="password" class="form-control"  name="password" placeholder="Password" autocomplete="off" >
+          <div class="alert alert-danger" *ngIf="password.touched && password.invalid">
+            <div *ngIf="password.errors.required">Password is required.</div>
+            <div *ngIf="password.errors.minlength">Password should contain at least 10 characters</div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" >Register</button>
+    </form>
+</div>

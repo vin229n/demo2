@@ -1,0 +1,13 @@
+<div class="d-flex justify-content-center mt-4">
+    <form class="form-inline ">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search" [(ngModel)]="searchText">
+        <button class="btn btn-outline-success my-2 my-sm-0" (click)="onSubmit()">Search</button>
+        
+    </form>
+    <div class="spinner-border ml-2" role="status" *ngIf="loading">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+
+
+

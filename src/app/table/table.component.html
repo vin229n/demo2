@@ -1,0 +1,38 @@
+
+  <div class="card mb-5" *ngFor="let day of response?.daily?.data;let i=index">
+    <div class="card-header d-flex justify-content-between bg-dark"> 
+      <h5 style="display:inline;color:aliceblue" > {{(day.time*1000) | date : 'fullDate' }}</h5>
+      <button  (click)="toggleChart()" *ngIf="i===0" class="btn btn-success">{{toggle}}</button>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"></h5>
+      <ul class="nav nav-pills" *ngIf="chart && i===0">
+        <li class="nav-item">
+          <button [ngClass]="attr === 'temperature'?'nav-link active':'nav-link'" (click)="temp()" >Temperature</button>
+
+        </li>
+
+        <li class="nav-item">
+          <button [ngClass]="attr === 'humidity'?'nav-link active':'nav-link'" (click)="humidity()">Humidity</button>
+          
+        </li>
+
+        <li class="nav-item">
+          <button [ngClass]="attr === 'windspeed'?'nav-link active':'nav-link '" (click)="wind()">WindSpeed</button>
+          
+        </li>
+
+
+
+      </ul>
+      <app-chart *ngIf="chart && i===0" [chartData]="response.hourly" [attr]="attr"></app-chart>
+      <p class="card-text" *ngIf="i === 0"> {{response?.currently.summary}}</p>
+      <p class="card-text" *ngIf="i !== 0"> {{day?.summary}}</p>
+      <p class="card-text" *ngIf="i === 0">
+        <span class="mr-4"><span class="font-weight-bold ">Temperature: </span> {{response?.currently.temperature}} F</span>
+        <span class="mr-4"><span class="font-weight-bold ">Humidity:</span> {{((response?.currently.humidity)*100) | number:'1.0-3'}}% </span>
+        <span class="mr-4"><span class="font-weight-bold ">Wind:</span> {{response?.currently.windSpeed}} mph</span>
+      </p>
+    </div>
+  </div>
+
